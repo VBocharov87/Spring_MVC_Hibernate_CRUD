@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All users list</title>
+</head>
+<body>
+<div>
+    <table border="2" width="500">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th>Operations</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${users}">
+            <td th:text="${user.name}"></td>
+            <td th:text="${user.age}"></td>
+            <td th:text="${user.email}"></td>
+            <td style="text-align: center;">
+                <button type="button" th:onclick="'window.location.href=\'/Spring_MVC_Hibernate_CRUD/update?id=' + ${user.id} + '\';'">Update</button>
+                <button type="button" th:onclick="'window.location.href=\'/Spring_MVC_Hibernate_CRUD/delete?id=' + ${user.id} + '\';'">Delete</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <br><br>
+    <button type="button" th:onclick="|window.location.href='@{/add}';|">Add new User</button>
+</div>
+</body>
+</html>
