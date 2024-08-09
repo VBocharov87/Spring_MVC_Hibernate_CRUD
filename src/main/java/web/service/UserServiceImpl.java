@@ -3,7 +3,7 @@ package web.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import web.DAO.User_DAO;
+import web.dao.UserDao;
 import web.model.User;
 
 import java.util.List;
@@ -11,10 +11,10 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
-    private User_DAO userDao;
+    private UserDao userDao;
 
     @Autowired
-    public UserServiceImpl(User_DAO userDao) {
+    public UserServiceImpl(UserDao userDao) {
         this.userDao = userDao;
     }
 

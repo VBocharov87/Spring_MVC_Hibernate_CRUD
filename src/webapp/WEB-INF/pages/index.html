@@ -22,8 +22,11 @@
             <td th:text="${user.age}"></td>
             <td th:text="${user.email}"></td>
             <td style="text-align: center;">
-                <button type="button" th:onclick="'window.location.href=\'/Spring_MVC_Hibernate_CRUD/update?id=' + ${user.id} + '\';'">Update</button>
-                <button type="button" th:onclick="'window.location.href=\'/Spring_MVC_Hibernate_CRUD/delete?id=' + ${user.id} + '\';'">Delete</button>
+                <a th:href="@{/update(id=${user.id})}" style="text-decoration: none; color: blue;">Update</a>
+                <form th:action="@{delete(id=${user.id})}" method="post" style="display:inline;">
+                    <input type="hidden" name="_method" value="delete" />
+                    <button type="submit" style="background: none; border: none; color: red; cursor: pointer;">Delete</button>
+                </form>
             </td>
         </tr>
         </tbody>
